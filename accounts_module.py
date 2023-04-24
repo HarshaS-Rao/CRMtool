@@ -2,7 +2,7 @@ from django.db import models
 
 class Account(models.Model):
     name = models.CharField(max_length=50)
-    email = models.EmailField(blank=True, null=True)
+    email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True, null=True)
     website = models.URLField(blank=True, null=True)
     industry = models.CharField(max_length=50, blank=True, null=True)
