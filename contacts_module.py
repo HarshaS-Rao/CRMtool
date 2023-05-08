@@ -1,17 +1,18 @@
-from django.db import models
 
-class Contact(models.Model):
+class Lead(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(blank=True, null=True)
-    phone = models.CharField(max_length=20, blank=True, null=True)
-    address = models.TextField(blank=True, null=True)
-    city = models.CharField(max_length=50, blank=True, null=True)
-    state = models.CharField(max_length=50, blank=True, null=True)
+    phone = models.CharField(max_length=20)
+    address = models.TextField()
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
     country = models.CharField(max_length=50, blank=True, null=True)
-    zip_code = models.CharField(max_length=10, blank=True, null=True)
+    zip_code = models.CharField(max_length=10)
+    status = models.CharField(max_length=20, default='New')
+    source = models.CharField(max_length=50, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)  #this can be convert button
 
     def _str_(self):
         return f"{self.first_name} {self.last_name}"
